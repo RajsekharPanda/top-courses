@@ -1,10 +1,12 @@
 import React from 'react'
+import ReactLoading from "react-loading";
+import "./Spinner.css"
 
 const Spinner = () => {
 return (
-   <div>
+   <div className='flex flex-col items-center space-y-2'>
       <div className='spinner'></div>
-      <p>Loading...</p>
+      <p className='text-[#1e1b4b] text-lg font-semibold'>Loading...</p>
    </div>
 )
 }

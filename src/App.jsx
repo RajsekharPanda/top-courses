@@ -10,7 +10,8 @@ import Spinner from "./components/Spinner";
 
 function App() {
   const [courses, setCourses] = useState(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  const [catogery,setCatogery] = useState(filterData[0].title);
 
   const fetchData = async () => {
     setLoading(true);
@@ -31,20 +32,20 @@ function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <div>
         <Navbar />
       </div>
 
+      <div className="">
       <div>
-        <Filter filterData={filterData} />
+        <Filter filterData={filterData} catogery={catogery} setCatogery={setCatogery}/>
       </div>
-
-      <div>
-        {
-          loading? (<Spinner/>) : (<Cards courses={courses} />)
-        }
-        
+        <div className="w-11/12 max-w-[1200px] mx-auto flex flex-wrap justify-center items-center min-h-[50v]">
+          {
+            loading? (<Spinner/>) : (<Cards courses={courses} catogery={catogery}/>)
+          }
+        </div>
       </div>
     </div>
   );
